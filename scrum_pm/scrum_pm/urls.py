@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic.simple import direct_to_template
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    url(r'^$', direct_to_template, {'template': 'index.html'}, name='home'),
     # url(r'^$', 'scrum_pm.views.home', name='home'),
     # url(r'^scrum_pm/', include('scrum_pm.foo.urls')),
 
