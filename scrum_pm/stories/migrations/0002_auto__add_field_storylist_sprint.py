@@ -7,6 +7,10 @@ from django.db import models
 
 class Migration(SchemaMigration):
 
+    depends_on = (
+        ("artifacts", "0001_initial"),
+    )
+
     def forwards(self, orm):
         # Adding field 'StoryList.sprint'
         db.add_column('stories_storylist', 'sprint',
