@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from projects.models import Project
+from artifacts.models import Sprint
 
 
 PRIORITY = ["Critical", "High", "Normal", "Low"]
@@ -16,6 +17,7 @@ class StoryList(models.Model):
     created_by = models.ForeignKey(User)
     project = models.ForeignKey(Project)
     name = models.CharField(max_length=250)
+    sprint = models.ForeignKey(Sprint, null=True, blank=True)
 
     def __unicode__(self):
         return "[%s] %s" % (self.project.name, self.name)
