@@ -5,8 +5,15 @@ from django.views.generic.simple import direct_to_template
 from django.contrib import admin
 admin.autodiscover()
 
+# API
+from tastypie.api import Api
+from projects.api import ProjectResource
+v1_api = Api(api_name='v1')
+v1_api.register(ProjectResource())
+
 urlpatterns = patterns('',
     url(r'^$', direct_to_template, {'template': 'index.html'}, name='home'),
+    (r'^api/', include(v1_api.urls)),
     # url(r'^$', 'scrum_pm.views.home', name='home'),
     # url(r'^scrum_pm/', include('scrum_pm.foo.urls')),
 
