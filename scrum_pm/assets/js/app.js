@@ -16,7 +16,6 @@ $(function(){
     },
 
     dashboard: function() {
-      nav_activate('#pri_nav_dashboard');
       var v = {
         'current_sprint': {
           'ends_in_days': 4
@@ -24,13 +23,24 @@ $(function(){
         'tickets': {
           'closed': Math.floor((Math.random()*100)+1)
         }
-      }
-      $('#main').html($("#tmpl_dashboard").tmpl(v));
+      };
+      nav_activate('#pri_nav_dashboard');
+      soy.renderElement($('#main').get(0), spm.ui.dashboard, v);
     },
 
     projects: function() {
+      var p = {
+        'projects': [
+          {
+            'name': 'Project 1'
+          },
+          {
+            'name': 'Project 2'
+          }
+        ]
+      };
       nav_activate('#pri_nav_projects');
-      $('#main').html($("#tmpl_projects").tmpl());
+      soy.renderElement($('#main').get(0), spm.ui.projects, p);
     }
   });
 
