@@ -37,6 +37,9 @@
       }
     </style>
     <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <script>
+      API_PROJECTS = "{% url api_dispatch_list api_name="v1" resource_name="projects" %}";
+    </script>
 
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -96,18 +99,19 @@
               <li><a href="#">PdStdLib</a></li>
               <li class="nav-header">Sprints</li>
               <li><a href="#">Current Sprint</a></li>
-              <li><a href="#">Last Sprint (Apr 12 - Apr 18)</a></li>
+              <li><a href="#">Product Backlog</a></li>
+              <li><a href="#">Previous Sprint (Apr 12 - Apr 18)</a></li>
+              <li><a href="#">Older Sprints</a></li>
+              <li class="nav-header">Reports</li>
+              <li><a href="#">Burndown Report</a></li>
+              <li><a href="#">Sprint Timeline</a></li>
               <li><a href="#">Roadmap</a></li>
-              <li class="nav-header">Backlog</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span10" id="main">
-          <h1>Oops, four oh four! <small>HTTP 404</small></h1>
-          <p>The page you are looking for does not appear to exist.<br/>
+          <h1>Loading... <small>Relax, we're on it</small></h1>
+          <p>A small team of intelligent monkeys are carefully constructing this page for you. They should be done in a sec.<br/><br/>
           <a href="#">Click here to go to the Dashboard</a></p>
         </div><!--/span-->
       </div><!--/row-->
@@ -127,6 +131,7 @@
     <script src="/static/js/ui.js"></script>
     <script src="/static/js/bootstrap.js"></script>
     <script src="/static/js/backbone-min.js"></script>
+    <script src="/static/js/backbone-tastypie.js"></script>
     <script src="/static/js/app.js"></script>
   </body>
 </html>

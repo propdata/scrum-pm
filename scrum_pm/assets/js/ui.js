@@ -14,13 +14,13 @@ spm.ui.dashboard = function(opt_data, opt_sb) {
 
 spm.ui.projects = function(opt_data, opt_sb) {
   var output = opt_sb || new soy.StringBuilder();
-  output.append('<ul class="breadcrumb"><li><a href="#">Dashboard</a> <span class="divider">/</span></li><li><a href="#projects">Projects</a> <span class="divider">/</span></li><li class="active">All Current Projects</li></ul><h1>Projects <small>All current projects.</small></h1><table class="table table-condensed"><thead><tr><th>ID</th><th>Created</th><th>Status</th><th>Project Name</th><th>Code</th><th class="a-right">Open Stories</th><th class="a-right">Closed Stories</th></tr></thead><tbody>');
-  var projectList10 = opt_data.projects;
-  var projectListLen10 = projectList10.length;
-  for (var projectIndex10 = 0; projectIndex10 < projectListLen10; projectIndex10++) {
-    var projectData10 = projectList10[projectIndex10];
-    output.append('<tr><td>1</td><td>Jan 18, 2011 - 17:13</td><td>Active</td><td><a href="#projects/1">', soy.$$escapeHtml(projectData10['name']), '</a></td><td>HW24</td><td class="a-right">22</td><td class="a-right">821</td></tr>');
-  }
-  output.append('</tbody></table>');
+  output.append('<ul class="breadcrumb"><li><a href="#">Dashboard</a> <span class="divider">/</span></li><li><a href="#projects">Projects</a> <span class="divider">/</span></li><li class="active">All Current Projects</li></ul><h1>Projects <small>All current projects.</small></h1><table class="table table-condensed"><thead><tr><th>ID</th><th>Created</th><th>Status</th><th>Project Name</th><th>Code</th><th class="a-right">Open Stories</th><th class="a-right">Closed Stories</th></tr></thead><tbody id="projects"></tbody></table>');
+  return opt_sb ? '' : output.toString();
+};
+
+
+spm.ui.project = function(opt_data, opt_sb) {
+  var output = opt_sb || new soy.StringBuilder();
+  output.append('<td>', soy.$$escapeHtml(opt_data.id), '</td><td>', soy.$$escapeHtml(opt_data.added), '</td><td>', soy.$$escapeHtml(opt_data.status), '</td><td><a href="#projects/', soy.$$escapeHtml(opt_data.id), '">', soy.$$escapeHtml(opt_data.name), '</a></td><td>', soy.$$escapeHtml(opt_data.code), '</td><td class="a-right">', soy.$$escapeHtml(opt_data.open_stories), '</td><td class="a-right">', soy.$$escapeHtml(opt_data.closed_stories), '</td>');
   return opt_sb ? '' : output.toString();
 };

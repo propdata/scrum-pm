@@ -77,7 +77,6 @@
 
 /**
  * Projects
- * @param projects The list of projects.
  */
 {template .projects}
 <ul class="breadcrumb">
@@ -98,18 +97,27 @@
       <th class="a-right">Closed Stories</th>
     </tr>
   </thead>
-  <tbody>
-    {foreach $project in $projects}
-    <tr>
-      <td>1</td>
-      <td>Jan 18, 2011 - 17:13</td>
-      <td>Active</td>
-      <td><a href="#projects/1">{$project['name']}</a></td>
-      <td>HW24</td>
-      <td class="a-right">22</td>
-      <td class="a-right">821</td>
-    </tr>
-    {/foreach}
+  <tbody id="projects">
   </tbody>
 </table>
+{/template}
+
+/**
+ * Project Row
+ * @param id Project id.
+ * @param added Timestamp when project was created.
+ * @param name Project name.
+ * @param code Project short code.
+ * @param open_stories Open stories.
+ * @param closed_stories Closed stories.
+ * @param status Project status.
+ */
+{template .project}
+  <td>{$id}</td>
+  <td>{$added}</td>
+  <td>{$status}</td>
+  <td><a href="#projects/{$id}">{$name}</a></td>
+  <td>{$code}</td>
+  <td class="a-right">{$open_stories}</td>
+  <td class="a-right">{$closed_stories}</td>
 {/template}
